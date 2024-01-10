@@ -1,0 +1,712 @@
+{
+	"info": {
+		"_postman_id": "49dc93e9-9268-4360-9114-24c29f92ec94",
+		"name": "Covimeds Post man collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16928330",
+		"_collection_link": "https://lively-shuttle-561802.postman.co/workspace/New-Team-Workspace~b2d25295-12e8-4710-91d9-fa857acf11e6/collection/16928330-49dc93e9-9268-4360-9114-24c29f92ec94?action=share&source=collection_link&creator=16928330"
+	},
+	"item": [
+		{
+			"name": "Forms",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"John Doe\",\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/signup",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product (admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "76a2cdd208bfghfghfhgfhg0e27b1b16ff25d8295f5a",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Ped Dewormer",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "For animals",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "upload",
+									"type": "file",
+									"src": "/Users/mac/Downloads/Fluvoxamine.jpeg"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/product",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product (admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/product/526a81fbba747c8f1790e6925d24ae1a",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"product",
+								"526a81fbba747c8f1790e6925d24ae1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch a product (public)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/product/526a81fbba747c8f1790e6925d24ae1a",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"product",
+								"526a81fbba747c8f1790e6925d24ae1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all product (public)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catrgory",
+			"item": [
+				{
+					"name": "Create Catrgory (admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"animal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/category",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Catrgory (admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/category/d7a09afbf9821dfb156e31ebfd6defbf",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								"d7a09afbf9821dfb156e31ebfd6defbf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch a catrgory (public)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/category/086e411a93733738dd09973b84fc2234",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								"086e411a93733738dd09973b84fc2234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all categories (public)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Billing address",
+			"item": [
+				{
+					"name": "Create Billing address (client)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"Gabriel Delight\",\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"phoneNumber\": \"08078945122\",\n    \"country\": \"United Kingdom\",\n    \"state\": \"London\",\n    \"postalCode\": \"22474\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/billing_address",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"billing_address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Billing address (client)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": \"086e411a93733738dd09973b84fc2234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/billing_address/aea50366f931bf1c0573aa6ebe8760d0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"billing_address",
+								"aea50366f931bf1c0573aa6ebe8760d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch a billing address (client)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/billing_address/9abe1db974233d8f404d957a6484cf65",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"billing_address",
+								"9abe1db974233d8f404d957a6484cf65"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all user billing address (client)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/billing_addresses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"billing_addresses"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Please use user auth for this section a user must login"
+		},
+		{
+			"name": "Order (products)",
+			"item": [
+				{
+					"name": "Create Order (client)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order\": [\n    {\n        \"id\": 3,\n        \"_id\": \"ea3de412d1ab17fadbe3514f42aa1969\",\n        \"brand_id\": null,\n        \"category_id\": \"76a2cdd208b0e27b1b16ff25d8295f5a\",\n        \"name\": \"Ped Dewormer\",\n        \"description\": \"For animals\",\n        \"status\": \"active\",\n        \"image\": \"avatar-1702041498416.jpeg\",\n        \"qty\": 20,\n        \"price\": 10000,\n        \"createdAt\": \"2023-12-08T13:18:18.428Z\"\n    },\n    {\n        \"id\": 1,\n        \"_id\": \"f8ebd502272bf2a37024a096c241b819\",\n        \"brand_id\": null,\n        \"category_id\": \"sdsd\",\n        \"name\": \"Azee\",\n        \"description\": \"For body pains\",\n        \"price\": 2000,\n        \"qty\": 5,\n        \"status\": \"active\",\n        \"image\": \"avatar-1702022546295.jpeg\",\n        \"createdAt\": \"2023-12-08T08:02:26.305Z\"\n    }\n]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Order  (admin)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_id\": \"dsds\",\n    \"status\": \"approved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order (admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryId\": \"086e411a93733738dd09973b84fc2234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/billing_address/aea50366f931bf1c0573aa6ebe8760d0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"billing_address",
+								"aea50366f931bf1c0573aa6ebe8760d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch all users order (client)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user_orders/94b4afda91fa3a91e66e5ba17be7af15",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user_orders",
+								"94b4afda91fa3a91e66e5ba17be7af15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch order by order_id (client)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userAccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/order/3911ed1c",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"order",
+								"3911ed1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch order by status (admin)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminAccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/order_by_status/active",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"order_by_status",
+								"active"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "In thos order,just pass in thecart arrays"
+		},
+		{
+			"name": "Admin form",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"John Doe\",\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/admin/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Get image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"John Doe\",\n    \"email\": \"chinonso.d.gabriel@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/webStorage/product/avatar-1702041498416.jpeg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"webStorage",
+								"product",
+								"avatar-1702041498416.jpeg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
