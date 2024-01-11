@@ -45,15 +45,10 @@ app.use(
   })
 );
 
-// const users = require("./web-server/routes/users.routes.js");
 const Products = require("./web-server/routes/Product.routes");
 const Admin = require("./web-server/routes/Admin/Admin.routes");
-// const Category = require("./web-server/routes/Category.routes");
-// const Order = require("./web-server/routes/Orders.routes");
-// const BillingAddress = require("./web-server/routes/BillingAddress.routes");
 
 app.use(Products);
-// app.use(users, Products, Category, Order, BillingAddress);
 app.use("/admin", Admin);
 
 app.get("/", (req, res) => {
