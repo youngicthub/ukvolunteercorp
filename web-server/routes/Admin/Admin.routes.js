@@ -228,6 +228,46 @@ router.get("/admin", adminAuth, async (req, res) => {
     console.log(error);
   }
 });
+// Delete donation 
+
+router.delete("/donation/:id", adminAuth, async (req, res) => {
+  try {
+    async function QUERY(val) {
+      return new Promise((resolve, reject) => {
+        let sql = val;
+        db.query(sql, (error, result) => {
+          if (error) {
+            return console.log(error);
+          }
+          resolve(result);
+        });
+      });
+    }
+
+    let donations = await QUERY(`SELECT * FROM donations WHERE _id='${req.params.id}'`);
+
+    if (donations.length < 1)
+      return res.status(400).send({
+        message: "Donation does not exist",
+      });
+
+    db.query(
+      `DELETE FROM donations WHERE _id='${req.params.id}'`,
+      (error, result) => {
+        if (error) {
+          return console.log(error);
+        }
+      }
+    );
+
+    res.status(200).send({
+      message: "Donations deleted successfully",
+    });
+  } catch (error) {
+    res.send(error);
+    console.log(error);
+  }
+});
 
 // Delete  admin
 router.delete("/delete/:id", adminAuth, async (req, res) => {

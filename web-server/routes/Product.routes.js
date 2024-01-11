@@ -7,6 +7,7 @@ const auth = require("../auth/auth");
 const multer = require("multer");
 const path = require("path");
 const adminAuth = require("../auth/adminAuth");
+const { WelcomeEmail } = require("../Email/Email");
 
 const storage = multer.diskStorage({
   destination: "./web-server/web-folder/public/webStorage/receipts",
@@ -51,6 +52,8 @@ router.post("/donation", upload.single("upload"), async (req, res) => {
     db.query(sql, data, (error) => {
       if (error) return console.log(error);
     });
+
+    WelcomeEmail(data)
 
     res.status(200).send({
       message: "donations created successfully",
