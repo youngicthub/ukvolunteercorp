@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Uk Volunteer Corp - Donation</title>
+        <title>Uk Volunteer Corp - Payment </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -100,149 +100,184 @@
           </header>
         <!-- header end -->
         
-        <main>
-            <!-- page title start -->
-            <section class="page-title-area bg-overly slider-area slider-2" data-overlay="5" data-background="img/bg/page-title-bg.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="page-title-shape">
-                                <!-- <img src="img/shape/page-title-shape.png" alt=""> -->
-                            </div>
-                            <div class="page-title text-center" data-aos="fade-up" data-aos-delay="100">
-                                <h1>Donation Form</h1>
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb justify-content-center">
-                                        <li class="breadcrumb-item">
-                                            <a href="index.html">Home</a>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">Donation Form</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
+      
+        <link rel="stylesheet" href="path/to/select.css">
+        
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          }
+          .paymentdetails {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 60px;
+          }
+       #copiedMessage {
+            display: none;
+            margin-top: 10px;
+            color: green;
+        }
+          #payment {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+          }
+      
+          .modalBody {
+            margin-top: 20px;
+          }
+          .modalBody value{
+            padding: 10px;
+          }
+      
+          .address {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+      
+          .address p {
+            margin-right: 10px;
+          }
+      
+          .copy {
+            cursor: pointer;
+            margin-left: 5px;
+          }
+      
+          .submitBTN {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+      
+          .submitBTN:hover {
+            background-color: #45a049;
+          }
+      
+          .upload-input {
+            margin-top: 10px;
+          }
+      
+          .toast {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 13px;
+            padding: 10px;
+            background-color: #109beb;
+            color: #fff;
+          }
+        </style>
+      </head>
+      <body>
+      
+        <div class="paymentdetails">
+          <div id="payment">
+            <div>
+              <button onclick="closePopup()" class="btn" style="font-size: 14px;">Choose Payment Method</button>
+            </div>
+            <div class="modalBody">
+              <p style="font-size: 14px;">Please select your preferred payment method:</p>
+              <select id="paymentOptions" class="select" onchange="displayAddress()">
+                <!-- Options go here -->
+                <option value="btc">Select</option>
+                <option value="btc">Bitcoin</option>
+                <option value="paypal">PayPal</option>
+              </select>
+              <div id="selectedPayment" class="address" style="display: none;">
+                <p style="font-size: 14px;"></p>
+                <span></span>
+                <div class="copy" onclick="copyAddress()">
+                  Copy
                 </div>
-            </section>
-            <!-- page title end -->
-
-            <!-- causes details start -->
-            <section class="causes-details pt-120 pb-90">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="causes-dtls-content">
-                                <div class="donate-amount mb-35">
-                                    <div class="donate-title mb-35" data-aos="fade-up" data-aos-delay="100">
-                                        <h3>Donate now</h3>
-                                        <p><span>1</span> Choose your donate amount</p>
-                                    </div>
-                                    <div class="custom-donate mt-30 mb-30" data-aos="fade-up" data-aos-delay="100">
-                                        <span><span>$</span></span>
-                                        <input type="text" placeholder="$250">
-                                    </div>
-                                    <ul class="amount mb-30" data-aos="fade-up" data-aos-delay="100">
-                                        <li>$100.00</li>
-                                        <li class="active">$250.00</li>
-                                        <li>$500.00</li>
-                                        <li>$1000.00</li>
-                                        <li>Custom Amount</li>
-                                    </ul>
-                                </div>
-                                <div class="give-payment-mode-select" data-aos="fade-up" data-aos-delay="100">
-                                    <h3>Select Payment Method</h3>
-                                    <div class="give-payment-mode-wrap">
-                                        <ul class="give-gateway-radio-list">
-                                            <li class="give-gateway-option-selected">
-                                                <input type="radio" name="payment-mode" class="give-gateway" id="give-gateway-manual-232-1" value="manual" checked="checked">
-
-                                                <label for="give-gateway-manual-232-1" class="give-gateway-option" id="give-gateway-option-manual"> Bitcoin</label>
-                                            </li>
-                                            
-                                            <li>
-                                                <input type="radio" name="payment-mode" class="give-gateway" id="give-gateway-paypal-232-1" value="paypal">
-
-                                                <label for="give-gateway-paypal-232-1" class="give-gateway-option" id="give-gateway-option-paypal"> PayPal</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <form class="give-form" action="#">
-                                    <div class="form-title" data-aos="fade-up" data-aos-delay="300">
-                                        <h3>personal Info !</h3>
-                                    </div>
-                                    <div class="row" data-aos="fade-up" data-aos-delay="300">
-                                        <div class="col-xl-4 col-lg-4">
-                                            <label>First Name<span>*</span></label>
-                                            <input type="text" name="fname" placeholder="Your Name">
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4">
-                                            <label>Last Name<span>*</span></label>
-                                            <input type="text" name="lname" placeholder="Your Email">
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4">
-                                            <label>Number<span>*</span></label>
-                                            <input type="number" name="number" placeholder="Number">
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6">
-                                            <label>Own Adress<span>*</span></label>
-                                            <input type="text" name="email" placeholder="Mail Address">
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6">
-                                            <label>Mail Address<span>*</span></label>
-                                            <input type="email" name="email" placeholder="Mail Address">
-                                        </div>
-                                        <div class="col-xl-12">
-                                            <label>Your Massage</label>
-                                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Massage"></textarea>
-                                        </div>
-                                        <div class="col-xl-12">
-                                            <div class="form-bottom d-flex flex-wrap align-items-center justify-content-between w-100" data-aos="fade-up" data-aos-delay="100">
-                                                <div class="form-btn mb-30">
-                                                    <a href="/payment.html" style="border: 1px solid red; padding: 10px; color: white; background: red;">Donate Now</a>
-                                                </div>
-                                                <div class="form-rate mb-30">
-                                                    <!-- <p>Total Donation <span>$250</span></p> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                  // Get the elements
-                  const customDonateInput = document.querySelector('.custom-donate input');
-                  const amountListItems = document.querySelectorAll('.amount li');
+                <div id="toast" class="toast" style="display: none;">Copied!</div>
+              </div>
+              <div class="upload-input">
+                <p>Upload Payment Receipt:</p>
+                <input type="file" accept=".jpg, .png, .pdf" onchange="handleFileChange()" required>
+              </div>
+            </div>
+            <div class="modalFooter">
+              <button onclick="validatePayment()" class="submitBTN">Submit Payment</button>
+            </div>
+          </div>
+        </div>
+      
+        <script src="path/to/select.js"></script>
+        <script>
+          function closePopup() {
+            // Implement close functionality
+          }
+      
+          function displayAddress() {
+            const selectedPayment = document.getElementById("paymentOptions").value;
+            const addressContainer = document.getElementById("selectedPayment");
+            const addressText = addressContainer.querySelector("span");
+      
+            if (selectedPayment === "btc") {
+              addressText.textContent = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+            } else if (selectedPayment === "paypal") {
+              addressText.textContent = "yourpaypal@example.com";
+            }
+      
+            const addressParagraph = addressContainer.querySelector("p");
+            addressParagraph.textContent = selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1);
+            addressContainer.style.display = "flex";
+          }
+      
+          function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+          }
+      
+          function copyAddress() {
+            const addressText = document.getElementById("selectedPayment").querySelector("span").textContent;
+            copyToClipboard(addressText);
+      
+            // Display toast
+            const toast = document.getElementById("toast");
+            toast.style.display = "block";
+            setTimeout(() => {
+              toast.style.display = "none";
+            }, 2000);
+          }
+      
+          function handleFileChange() {
+            // Implement file change functionality
+          }
+      
+          function validatePayment() {
+            const selectedPayment = document.getElementById("paymentOptions").value;
+            const copiedAddress = document.getElementById("toast").style.display === "block";
+      
+            if (selectedPayment && copiedAddress) {
+              // Assume the payment is successful
+              alert("Payment Successful");
               
-                  // Add click event listeners to amount list items
-                  amountListItems.forEach(item => {
-                    item.addEventListener('click', function () {
-                      // Remove 'active' class from all items
-                      amountListItems.forEach(li => li.classList.remove('active'));
-              
-                      // If it's not the 'Custom Amount' option, set it as active and update the custom input
-                      if (item.textContent !== 'Custom Amount') {
-                        item.classList.add('active');
-                        customDonateInput.value = item.textContent.substring(1); // Remove the '$' sign
-                      } else {
-                        customDonateInput.value = ''; // Clear custom amount input if 'Custom Amount' is selected
-                      }
-                    });
-                  });
-                });
-              </script>
-              
-            <!-- causes details end -->
-
-        </main>
+              // Reload the page (change the URL to your home page)
+              window.location.href = "/";
+            } else {
+              alert("Please select a payment method and copy the address before submitting.");
+            }
+          }
+        </script>
+      </body>
 
         <!-- footer start -->
         <footer class="footer-area footer-height" data-background="img/bg/footer-bg.jpg">

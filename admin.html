@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav {
+            flex: 0 0 200px;
+            background-color: #555;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            display: none; /* Hidden by default on larger screens */
+            cursor: pointer;
+        }
+
+        table {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            table {
+                flex: 1;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; justify-content: space-around;">
+        Admin Dashboard
+        <div class="menu-icon" onclick="toggleNav()">&#9776;</div>
+    </header>
+
+    <div class="container">
+        <nav id="sideNav">
+            <a onclick="displayWelcome()">Dashboard</a>
+            <a onclick="displayPayments()">Payments</a>
+            <a onclick="displayUsers()">Users</a>
+            <a onclick="logout()" style="color: red;">Logout</a>
+        </nav>
+
+        <table id="dashboard">
+            <thead>
+                <tr>
+                    <th>Welcome Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="welcomeMessage">Welcome to the Admin Dashboard!</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="payments" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Receipt</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>$100.00</td>
+                    <td><a href="path/to/receipt.pdf" target="_blank">View Receipt</a></td>
+                    <td><button onclick="deletePayment(0)">Delete</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <table id="users" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone No</th>
+                    <th>Email Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>987-654-3210</td>
+                    <td>jane@example.com</td>
+                    <td><button onclick="deleteUser(0)">Delete</button></td>
+                </tr>
+                <tr>
+                  <td>Jane Bitch</td>
+                  <td>987-654-321220</td>
+                  <td>jane@mail.com</td>
+                  <td><button onclick="deleteUser(1)">Delete</button></td>
+              </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        This site is developed by YoungICT Hub
+    </footer>
+
+    <script>
+        function toggleNav() {
+            var sideNav = document.getElementById("sideNav");
+            sideNav.style.display = (sideNav.style.display === "block") ? "none" : "block";
+        }
+
+        function displayWelcome() {
+            var welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.innerHTML = "Welcome to the Admin Dashboard!";
+            hideTablesExcept("dashboard");
+        }
+
+        function displayPayments() {
+            hideTablesExcept("payments");
+        }
+
+        function displayUsers() {
+            hideTablesExcept("users");
+        }
+
+        function logout() {
+            alert("You are about to logout!");
+            window.location.href = "adminlogin.html";
+        }
+
+        function hideTablesExcept(tableId) {
+            var tables = ["dashboard", "payments", "users"];
+            tables.forEach(function(table) {
+                var element = document.getElementById(table);
+                element.style.display = (table === tableId) ? "table" : "none";
+            });
+        }
+
+        function deletePayment(index) {
+            var paymentsTable = document.getElementById("payments");
+            paymentsTable.deleteRow(index + 1); // Adding 1 to account for the header row
+        }
+
+        function deleteUser(index) {
+            var usersTable = document.getElementById("users");
+            usersTable.deleteRow(index + 1); // Adding 1 to account for the header row
+        }
+    </script>
+
+</body>
+</html>
