@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
         <!-- Place favicon.png in the root directory -->
 
         <!-- CSS here -->
@@ -169,41 +171,43 @@
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>Admin Login</h2>
-        <form id="loginForm" onsubmit="validateForm(event)">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
-            </div>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form id="loginForm" onsubmit="validateForm(event)">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+        </div>
 
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
 
-            <div class="error-message" id="errorMessage"></div>
+        <div class="error-message" id="errorMessage"></div>
 
-            <button type="submit">Login</button>
-        </form>
-    </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
 
-    <script>
-        function validateForm(event) {
-            event.preventDefault();
+<script>
+    function validateForm(event) {
+        event.preventDefault();
 
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var errorMessage = document.getElementById('errorMessage');
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var errorMessage = document.getElementById('errorMessage');
 
-            if (email === 'admin@mail.com' && password === 'admin123') {
-                alert('Login Successful!');
-                window.location.href = "admin.html"; // Check the file path
-            } else {
-                errorMessage.textContent = 'Invalid username or password. Please try again.';
-            }
+        if (email === 'admin@mail.com' && password === 'admin123') {
+            alert('Login Successful!');
+            // Save login status to localStorage
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = "admin.html"; // Check the file path
+        } else {
+            errorMessage.textContent = 'Invalid username or password. Please try again.';
         }
-    </script>
+    }
+</script>
     
 </body>
 </html>
