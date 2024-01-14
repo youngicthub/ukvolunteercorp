@@ -33,7 +33,7 @@ router.post("/donation", upload.single("upload"), async (req, res) => {
         });
       });
     }
-
+console.log(req.body)
     if (!req.file) return res.status(401).send("Please upload receipt");
 
     const data = {
