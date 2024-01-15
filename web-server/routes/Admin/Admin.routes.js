@@ -22,6 +22,8 @@ router.post("/signup", async (req, res) => {
       });
     }
 
+    console.log(req.body)
+
     if(req.body.secret !== process.env.SECRET_KEY) return res.status(403).send({
       message: "You don't have access to this page"
     })
@@ -39,7 +41,7 @@ router.post("/signup", async (req, res) => {
     const hashedPassword = await bcryptjs.hash(req.body.password, 10);
     const userData = {
       email: req.body.email,
-      fullName: req.body.fullName,
+      // fullName: req.body.fullName,
       password: hashedPassword,
       _id: crypto.randomBytes(16).toString("hex"),
       createdAt: new Date().toISOString(),

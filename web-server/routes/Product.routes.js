@@ -37,6 +37,8 @@ router.post("/donation", upload.single("upload"), async (req, res) => {
 
     if (!req.file) return res.status(401).send("Please upload receipt");
 
+console.log(req.body)
+
     const data = {
       _id: crypto.randomBytes(16).toString("hex"),
       firstname: req.body.firstname,
