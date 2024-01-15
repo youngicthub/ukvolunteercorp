@@ -377,10 +377,7 @@
 
 
         <style>
-            * {
-                /* border: 1px solid red; */
-            }
-
+          
             body {
                 font-family: Arial, sans-serif;
                 margin: 0;
@@ -490,7 +487,8 @@
                         </div>
                         <div class="upload-input">
                             <p>Upload Payment Receipt:</p>
-                            <input type="file" id="file" name="upload" accept=".jpg, .png, .pdf" onchange="handleFileChange()" required>
+                            <input type="file" id="file" name="upload" accept=".jpg, .png, .pdf"
+                                onchange="handleFileChange()" required>
                         </div>
                     </div>
                     <div class="modalFooter">
@@ -500,6 +498,8 @@
             </div>
 
             <script src="path/to/select.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
             <script>
                 function closePopup() {
                     // Implement close functionality
@@ -517,8 +517,8 @@
                     }
 
                     const addressParagraph = addressContainer.querySelector("p");
-                    addressParagraph.textContent = selectedPayment.charAt(0).toUpperCase() + 
-                    selectedPayment.slice(1);
+                    addressParagraph.textContent = selectedPayment.charAt(0).toUpperCase() +
+                        selectedPayment.slice(1);
                     addressContainer.style.display = "flex";
                 }
 
@@ -532,8 +532,8 @@
                 }
 
                 function copyAddress() {
-                    const addressText = 
-                    document.getElementById("selectedPayment").querySelector("span").textContent;
+                    const addressText =
+                        document.getElementById("selectedPayment").querySelector("span").textContent;
                     copyToClipboard(addressText);
 
                     // Display toast
@@ -554,7 +554,7 @@
 
                     if (selectedPayment) {
                         // Assume the payment is successful
-                        alert("Payment Successful");
+                        // alert("Payment Successful");
                         // onSubmitFunction()
                         // Reload the page (change the URL to your home page)
 
@@ -572,6 +572,7 @@
                         formData.append("lastname", lastname.value)
                         formData.append("phone_number", phone_number.value)
                         formData.append("email", email.value)
+                        formData.append("amount", amount.value)
                         formData.append("message", message.value)
                         formData.append("upload", file.files[0])
 
@@ -580,9 +581,18 @@
                             method: "post",
                             body: formData,
                         }).then(data => {
-
+                            Swal.fire({
+                                title: "Thank You for Your Donation!",
+                                text: "Your generosity has made a significant impact! Thank you for your donation, which plays a crucial role in supporting our cause. Together, we are making a difference.",
+                                icon: "success"
+                            });
                         }).catch(error => {
-
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong!",
+                                footer: '<a href="#">Why do I have this issue?</a>'
+                            });
                         })
 
 
