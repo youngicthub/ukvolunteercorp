@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 11, 2024 at 08:39 AM
+-- Generation Time: Jan 15, 2024 at 03:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `_id`, `fullName`, `email`, `password`, `createdAt`) VALUES
-(1, '7f140e624141464bc74039211b60b921', 'Gabriel Delight', 'gabrieldelight08@gmail.com', '$2a$10$MkXh5e4jQOJlupIL5YrbSOE0vJPvBM9Mx7xOslOPVKmcImi/vMhLG', '2024-01-11T07:07:28.230Z');
+(5, '5e4bc3da0d43a9f6c409bdb568f31b2d', NULL, 'gabrieldelight08@gmail.com', '$2a$10$tvXLSEF7RfchnYN.2BC8euvkidevqgnmSN7oLJ9ZzCF1wuDXJ9TOm', '2024-01-15T02:25:27.989Z');
 
 -- --------------------------------------------------------
 
@@ -62,13 +62,6 @@ CREATE TABLE `donations` (
   `createdAt` text DEFAULT NULL,
   `payment_method` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `donations`
---
-
-INSERT INTO `donations` (`id`, `_id`, `firstname`, `lastname`, `email`, `amount`, `receipt`, `phone_number`, `message`, `createdAt`, `payment_method`) VALUES
-(7, 'a904897f957ffe10d7b4f0b053a1aef0', 'Gabriel', 'Delight', 'gabrieldelight08@gmail.com', '100', 'donations-1704958763954.png', '08087455614', 'Hello I would love to do some donations here love yall', '2024-01-11T07:39:23.955Z', NULL);
 
 --
 -- Indexes for dumped tables
@@ -94,13 +87,13 @@ ALTER TABLE `donations`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
