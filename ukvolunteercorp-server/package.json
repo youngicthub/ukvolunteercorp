@@ -1,0 +1,40 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js -e hbs,js",
+    "dev": "env-cmd -f ./config/dev.env nodemon server.js -e hbs,js",
+    "watch": "watchify web-server/web-folder/public/js/vc-script.js -o web-server/web-folder/public/js/video-call-bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bigdatacloudapi/client": "^1.1.1",
+    "@vonage/server-sdk": "^2.10.10",
+    "aws-sdk": "^2.1077.0",
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.8",
+    "express": "^4.17.1",
+    "flutterwave-node-v3": "^1.1.6",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.7.3",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "sanitize-html": "^2.7.0",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.3"
+  }
+}

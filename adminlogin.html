@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Uk Volunteer Corp - Admin </title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Place favicon.png in the root directory -->
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/meanmenu.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+
+<!-- preloader end  -->
+
+<!-- header start -->
+<header class="main-header header-2">
+  <div class="header-bottom-area">
+    <div class="header-bottom-wrapper">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-xl-2 col-lg-2">
+            <div class="logo">
+              <a href="index.html"><img src="/img/logo/logo.png" alt="logo" /></a>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-7">
+            <div class="main-menu">
+              <nav id="mobile-menu">
+                <ul>
+                  <li>
+                    <a href="/">Home </a>
+                  </li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="work.html"> Resources</a></li>
+
+
+                  <li><a href=" .html"> </a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="mobile-menu"></div>
+          </div>
+          <div class="col-xl-4 col-lg-3">
+            <div class="header-right d-none d-lg-block">
+              <div class="header-btn f-right">
+                <a class="thm-btn thm-btn-3" href="donation-form.html">Donate Now</a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- info bar start -->
+      <div class="btn-menu-main">
+        <div class="crose mb-40">
+          <button><i class="ti-close"></i></button>
+        </div>
+        <div class="logo-side mb-30">
+          <a href="index.html">
+            <img src="/img/logo/logo.png" alt="" />
+          </a>
+        </div>
+
+      </div>
+      <div class="offcanvas-overly"></div>
+      <!-- info bar end -->
+
+      <!-- header search start -->
+
+      <!-- header search end -->
+    </div>
+  </div>
+</header>
+<!-- header end -->
+
+<body>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .login-container {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin-top: 100px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        width: 90%;
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <div class="login-container">
+      <h2>Admin Login</h2>
+      <!-- <form id="loginForm" onsubmit="validateForm(event)"> -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <button onclick="validateForm()" type="submit">Login</button>
+      <!-- </form> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      function validateForm(event) {
+
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+        var errorMessage = document.getElementById('errorMessage');
+
+
+        axios.post('http://localhost:8080/admin/login', {
+          email: email.value,
+          password: password.value,
+        })
+          .then(function (response) {
+            console.log('Response from server:', response.data.user.token);
+            localStorage.setItem("token", response.data.user.token)
+
+            Swal.fire({
+              title: "Login successful",
+              icon: "success"
+            });
+
+            window.location.href = "admin.html"
+          })
+          .catch(function (error) {
+            alert(error.response.data.message)
+            console.error('Error making POST request:', error.response.data.message);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: error.response.data.message,
+              footer: '<a href="#">Why do I have this issue?</a>'
+            });
+          });
+
+
+
+      }
+    </script>
+
+  </body>
+
+</html>

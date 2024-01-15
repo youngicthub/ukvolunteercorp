@@ -1,0 +1,396 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Uk Volunteer Corp - Payment </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+        <!-- Place favicon.png in the root directory -->
+
+        <!-- CSS here -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/themify-icons.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/aos.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/meanmenu.css">
+        <link rel="stylesheet" href="css/default.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </head>
+    <body>
+
+        <!-- preloader start -->
+        <div id="preloader">
+            <div class="preloader">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- preloader end  -->
+        
+        <!-- header start -->
+        <header class="main-header header-2">
+            <div class="header-bottom-area">
+              <div class="header-bottom-wrapper">
+                <div class="container-fluid">
+                  <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-2">
+                      <div class="logo">
+                        <a href="index.html"
+                          ><img src="/img/logo/logo.png" alt="logo"
+                        /></a>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-7">
+                      <div class="main-menu">
+                        <nav id="mobile-menu">
+                          <ul>
+                            <li>
+                              <a href="/">Home </a>
+                            </li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="work.html"> Resources</a></li>
+      
+      
+                            <li><a href=" .html"> </a></li>
+                          </ul>
+                        </nav>
+                      </div>
+                      <div class="mobile-menu"></div>
+                    </div>
+                    <div class="col-xl-4 col-lg-3">
+                      <div class="header-right d-none d-lg-block">
+                        <div class="header-btn f-right">
+                          <a class="thm-btn thm-btn-3" href="donation-form.html"
+                            >Donate Now</a
+                          >
+                        </div>
+                       
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- info bar start -->
+                <div class="btn-menu-main">
+                  <div class="crose mb-40">
+                    <button><i class="ti-close"></i></button>
+                  </div>
+                  <div class="logo-side mb-30">
+                    <a href="index.html">
+                      <img src="/img/logo/logo.png" alt="" />
+                    </a>
+                  </div>
+      
+                </div>
+                <div class="offcanvas-overly"></div>
+                <!-- info bar end -->
+      
+                <!-- header search start -->
+      
+                <!-- header search end -->
+              </div>
+            </div>
+          </header>
+        <!-- header end -->
+        
+      
+        <link rel="stylesheet" href="path/to/select.css">
+        
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          }
+          .paymentdetails {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 60px;
+          }
+       #copiedMessage {
+            display: none;
+            margin-top: 10px;
+            color: green;
+        }
+          #payment {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+          }
+      
+          .modalBody {
+            margin-top: 20px;
+          }
+          .modalBody value{
+            padding: 10px;
+          }
+      
+          .address {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+          }
+      
+          .address p {
+            margin-right: 10px;
+          }
+      
+          .copy {
+            cursor: pointer;
+            margin-left: 5px;
+          }
+      
+          .submitBTN {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+      
+          .submitBTN:hover {
+            background-color: #45a049;
+          }
+      
+          .upload-input {
+            margin-top: 10px;
+          }
+      
+          .toast {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 13px;
+            padding: 10px;
+            background-color: #109beb;
+            color: #fff;
+          }
+        </style>
+      </head>
+      <body>
+      
+        <div class="paymentdetails">
+          <div id="payment">
+            <div>
+              <button onclick="closePopup()" class="btn" style="font-size: 14px;">Choose Payment Method</button>
+            </div>
+            <div class="modalBody">
+              <p style="font-size: 14px;">Please select your preferred payment method:</p>
+              <select id="paymentOptions" class="select" onchange="displayAddress()">
+                <!-- Options go here -->
+                <option value="btc">Select</option>
+                <option value="btc">Bitcoin</option>
+                <option value="paypal">PayPal</option>
+              </select>
+              <div id="selectedPayment" class="address" style="display: none;">
+                <p style="font-size: 14px;"></p>
+                <span></span>
+                <div class="copy" onclick="copyAddress()">
+                  Copy
+                </div>
+                <div id="toast" class="toast" style="display: none;">Copied!</div>
+              </div>
+              <div class="upload-input">
+                <p>Upload Payment Receipt:</p>
+                <input type="file" accept=".jpg, .png, .pdf" onchange="handleFileChange()" required>
+              </div>
+            </div>
+            <div class="modalFooter">
+              <button onclick="validatePayment()" class="submitBTN">Submit Payment</button>
+            </div>
+          </div>
+        </div>
+      
+        <script src="path/to/select.js"></script>
+        <script>
+          function closePopup() {
+            // Implement close functionality
+          }
+      
+          function displayAddress() {
+            const selectedPayment = document.getElementById("paymentOptions").value;
+            const addressContainer = document.getElementById("selectedPayment");
+            const addressText = addressContainer.querySelector("span");
+      
+            if (selectedPayment === "btc") {
+              addressText.textContent = "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa";
+            } else if (selectedPayment === "paypal") {
+              addressText.textContent = "yourpaypal@example.com";
+            }
+      
+            const addressParagraph = addressContainer.querySelector("p");
+            addressParagraph.textContent = selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1);
+            addressContainer.style.display = "flex";
+          }
+      
+          function copyToClipboard(text) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+          }
+      
+          function copyAddress() {
+            const addressText = document.getElementById("selectedPayment").querySelector("span").textContent;
+            copyToClipboard(addressText);
+      
+            // Display toast
+            const toast = document.getElementById("toast");
+            toast.style.display = "block";
+            setTimeout(() => {
+              toast.style.display = "none";
+            }, 2000);
+          }
+      
+          function handleFileChange() {
+            // Implement file change functionality
+          }
+      
+          function validatePayment() {
+            const selectedPayment = document.getElementById("paymentOptions").value;
+            const copiedAddress = document.getElementById("toast").style.display === "block";
+      
+            if (selectedPayment && copiedAddress) {
+              // Assume the payment is successful
+              alert("Payment Successful");
+              
+              // Reload the page (change the URL to your home page)
+              window.location.href = "/";
+            } else {
+              alert("Please select a payment method and copy the address before submitting.");
+            }
+          }
+        </script>
+      </body>
+
+        <!-- footer start -->
+        <footer class="footer-area footer-height" data-background="img/bg/footer-bg.jpg">
+            <div class="footer-top pt-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="footer-widget mb-40" data-aos="fade-up" data-aos-delay="100">
+                                <div class="footer-logo mb-15">
+                                    <a href="#"><img src="img/logo/logo.png" alt=""></a>
+                                </div>
+                                <div class="footer-text mb-25">
+                                    <p>Rorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis exercitation.</p>
+                                </div>
+                                <div class="footer-social">
+                                    <a href="#"><i class="ti-facebook"></i></a>
+                                    <a href="#"><i class="ti-twitter-alt"></i></a>
+                                    <a href="#"><i class="ti-google"></i></a>
+                                    <a href="#"><i class="ti-instagram"></i></a>
+                                    <a href="#"><i class="ti-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 offset-xl-1 col-lg-6 col-md-6 pl-0">
+                            <div class="footer-widget link mb-40" data-aos="fade-up" data-aos-delay="300">
+                                <h3>Fundraise For</h3>
+                                <ul class="footer-link">
+                                    <li><a href="#">Medical</a></li>
+                                    <li><a href="#">Memorial</a></li>
+                                    <li><a href="#">Emergency</a></li>
+                                    <li><a href="#">Education</a></li>
+                                    <li><a href="#">Charity</a></li>
+                                    <li><a href="#">Organization</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 offset-xl-1 col-lg-6 col-md-6 pl-0">
+                            <div class="footer-widget link mb-40" data-aos="fade-up" data-aos-delay="500">
+                                <h3>Resources</h3>
+                                <ul class="footer-link">
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Press Center</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#"> </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6">
+                            <div class="footer-widget instagram mb-40" data-aos="fade-up" data-aos-delay="700">
+                                <h3>Photo Showcase</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-01.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-02.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-03.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-04.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-05.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-06.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-07.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-08.jpg" alt=""></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><img src="img/instagram/ins-09.jpg" alt=""></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="copyright-text text-center">
+                                <p>Copyright By @ Uk Volunteer Corp - 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+
+        <!-- JS here -->
+        <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/aos.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="js/jquery.meanmenu.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
